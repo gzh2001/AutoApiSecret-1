@@ -8,13 +8,17 @@ on:
     branches: 
       - master
   schedule:
-    - cron: '12 */3 * * *'
+    - cron: '12 */1 * * *'
   watch:
     types: [started]
    
 jobs:
    Task:
     runs-on: ubuntu-22.04
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
 #    if: github.event.repository.owner.id == github.event.sender.id  # 自己点的 start
     steps:
     - name: Checkout
